@@ -3,6 +3,7 @@ import FormTable from '../FormTable/FormTable';
 import axios from 'axios';
 import Notification from '../Notification/Notification';
 import TopNavbar from '../TopNavBar/TopNavBar';
+import { api_url } from '../env';
 
 interface Teacher {
   teacherID: number;
@@ -32,7 +33,7 @@ const SubjectTeacher: React.FC = () => {
 
   const fetchSubjects = async () => {
     try {
-      const response = await axios.get<Subject[]>('https://localhost:5001/api/subject/GetSubjects');
+      const response = await axios.get<Subject[]>(`${api_url}/api/subject/GetSubjects`);
       setSubjects(response.data);
     } catch (error) {
       console.error('Error fetching subjects', error);
@@ -60,7 +61,7 @@ const SubjectTeacher: React.FC = () => {
     console.log(subjectId)
     console.log(teacherId)
     try {
-      axios.delete(`https://localhost:5001/api/SubjectTeacher/DeleteBySubjectAndTeacher/${teacherId}/${subjectId}`);
+      axios.delete(`${api_url}/SubjectTeacher/DeleteBySubjectAndTeacher/${teacherId}/${subjectId}`);
       const updatedAllocated = allocated.filter(
         (allocation) =>
           allocation.subjectId !== subjectId && allocation.teacherId !== teacherId
@@ -87,7 +88,7 @@ const SubjectTeacher: React.FC = () => {
         teacherID: selectedTeacher,
       };
       try {
-        const response = await axios.post('https://localhost:5001/api/SubjectTeacher/AddSubjectTeacher', allocation);
+        const response = await axios.post(`${api_url}/api/SubjectTeacher/AddSubjectTeacher`, allocation);
         console.log(response.data)
         setAllocated([...allocated, response.data]);
         setNotification({ state: 'success', text: 'Allocation created successfully' });

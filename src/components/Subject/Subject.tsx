@@ -3,6 +3,7 @@ import Form from "../Form/Form";
 import axios from "axios";
 import Notification from "../Notification/Notification";
 import TopNavbar from "../TopNavBar/TopNavBar";
+import { api_url } from "../env";
 
 interface SubjectProps {
 
@@ -25,7 +26,7 @@ const Subject: React.FC<SubjectProps> = (props) => {
     setNotification({ state: "sending", text: "Subject sending" });
 
     axios
-      .post("https://localhost:5001/api/Subject/AddSubject", formData)
+      .post(`${api_url}/Subject/AddSubject`, formData)
       .then((response) => {
         setNotification({
           state: "success",

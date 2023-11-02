@@ -3,6 +3,7 @@ import Form from "../Form/Form";
 import axios from "axios";
 import Notification from "../Notification/Notification";
 import TopNavbar from "../TopNavBar/TopNavBar";
+import { api_url } from "../env";
 
 interface TeacherProps {
 
@@ -42,7 +43,7 @@ const Teacher: React.FC<TeacherProps> = (props) => {
     setNotification({ state: "sending", text: "Teacher sending" });
 
     axios
-      .post("https://localhost:5001/api/Teacher/AddTeacher", formData)
+      .post(`${api_url}/api/Teacher/AddTeacher`, formData)
       .then((response) => {
         setNotification({
           state: "success",

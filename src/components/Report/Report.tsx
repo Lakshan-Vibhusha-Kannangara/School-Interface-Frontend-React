@@ -3,6 +3,7 @@ import "./Report.css";
 import CustomSelect from "../CustomSelect/CustomSelect";
 
 import TopNavbar from "../TopNavBar/TopNavBar";
+import { api_url } from "../env";
 
 interface Student {
   studentID: number;
@@ -34,7 +35,7 @@ const StudentReport: React.FC = () => {
   }, []);
 
   const fetchStudents = () => {
-    fetch("https://localhost:5001/api/Student/GetStudents")
+    fetch(`${api_url}/Student/GetStudents`)
       .then((response) => response.json())
       .then((data: Student[]) => {
         setStudents(data);
@@ -47,7 +48,7 @@ const StudentReport: React.FC = () => {
 
   const fetchStudentReports = (studentId: number) => {
     fetch(
-      `https://localhost:5001/api/StudentDetailReport/GetStudentDetailReport/${studentId}`
+      `${api_url}/StudentDetailReport/GetStudentDetailReport/${studentId}`
     )
       .then((response) => response.json())
       .then((data: StudentRef) => {

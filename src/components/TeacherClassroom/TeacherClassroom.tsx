@@ -3,6 +3,7 @@ import FormTable from '../FormTable/FormTable';
 import axios from 'axios';
 import Notification from '../Notification/Notification';
 import TopNavbar from '../TopNavBar/TopNavBar';
+import { api_url } from '../env';
 
 interface Teacher {
   teacherID: number;
@@ -30,7 +31,7 @@ const TeacherClassroom: React.FC = () => {
   const fetchTeachers = async () => {
     try {
       const response = await axios.get<Teacher[]>(
-        'https://localhost:5001/api/Teacher/GetTeachers'
+        `${api_url}/Teacher/GetTeachers`
       );
       setTeachers(response.data);
     } catch (error) {
@@ -41,7 +42,7 @@ const TeacherClassroom: React.FC = () => {
   const fetchClasses = async () => {
     try {
       const response = await axios.get<Classroom[]>(
-        'https://localhost:5001/api/Classroom/GetClassrooms'
+        `${api_url}/api/Classroom/GetClassroom`
       );
       setClasses(response.data);
     } catch (error) {
@@ -67,7 +68,7 @@ const TeacherClassroom: React.FC = () => {
       };
       try {
         console.log(allocation);
-        const response = await axios.post('https://localhost:5001/api/AllocateClassroom', allocation);
+        const response = await axios.post(`${api_url}/AllocateClassroom`, allocation);
         console.log("allocated taecher and classroom",response.data)
         setAllocated([...allocated, allocation]);
         setNotification({ state: 'success', text: 'Allocation created successfully' });
@@ -88,7 +89,7 @@ const TeacherClassroom: React.FC = () => {
     console.log(classroomID)
     console.log(teacherID)
     try {
-      axios.delete(`https://localhost:5001/api/AllocateClassroom/DeleteByClassroomIDAndTeacherID/${classroomID}/${teacherID}`);
+      axios.delete(`${api_url}/AllocateClassroom/DeleteByClassroomIDAndTeacherID/${classroomID}/${teacherID}`);
       const updatedAllocated = allocated.filter(
         (allocation) =>
           allocation.teacherID !== teacherID && allocation.classroomID !== classroomID

@@ -4,6 +4,7 @@ import StudentForm from "../StudentForm/StudentForm";
 
 import Notification from "../Notification/Notification";
 import TopNavbar from "../TopNavBar/TopNavBar";
+import { api_url } from "../env";
 
 function StudentRegister() {
   const [classrooms, setClassrooms] = useState<Classroom[]>([]);
@@ -38,7 +39,7 @@ function StudentRegister() {
   useEffect(() => {
    
     axios
-      .get<Classroom[]>("https://localhost:5001/api/Classroom/GetClassrooms")
+      .get<Classroom[]>(`${api_url}/api/Classroom/GetClassrooms`)
       .then((response) => {
      
         setClassrooms(response.data);
@@ -58,7 +59,7 @@ function StudentRegister() {
 
 
     axios
-      .post("https://localhost:5001/api/Student/AddStudent", data)
+      .post(`${api_url}/Student/AddStudent`, data)
       .then((response) => {
         setTimeout(() => {
           setNotification({ state: "success", text: "Student registered successfully" });

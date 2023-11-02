@@ -3,7 +3,7 @@ import Form from "../Form/Form";
 import axios from "axios";
 import Notification from "../Notification/Notification";
 import TopNavbar from "../TopNavBar/TopNavBar";
-
+import { api_url } from "../env";
 export interface Classroom {
   classroomID?: number;
   classroomName: string;
@@ -25,7 +25,7 @@ const Classroom: React.FC<Classroom> = (props) => {
     setNotification({ state: "sending", text: "Classroom sending" });
 
     axios
-      .post("https://localhost:5001/api/Classroom/AddClassroom", formData)
+      .post(`${api_url}/Classroom/AddClassroom`, formData)
       .then((response) => {
         setNotification({
           state: "success",
