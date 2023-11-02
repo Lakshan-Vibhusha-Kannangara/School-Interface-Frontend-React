@@ -1,0 +1,110 @@
+
+
+.form-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+ 
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .form-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .form-box form a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #03e9f4;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-box form a:hover {
+    color: #03e9f4;
+    font-size: 20px;
+  }
+  
+  .form-box .user-box {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .form-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .form-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .form-box .user-box input:focus ~ label,
+  .form-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+  
+  .form-box button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #03e9f4;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-box button[type="submit"]:hover {
+    background: #03b2f4;
+  }
+  
+  .form-box button[type="submit"] span {
+    position: absolute;
+    display: block;
+  }
+  
+  /* Add more CSS styles as needed to customize the appearance of your form */
+
+.image {
+
+  width: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid #fff;
+
+    position: relative;
+    height: auto;
+    background-size: contain;
+    border-radius: 6px;
+
+}

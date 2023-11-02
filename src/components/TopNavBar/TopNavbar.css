@@ -1,0 +1,19 @@
+/* TopNavbar.css */
+.hover-animation {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hover-animation button {
+  /* Select the <a> element within .hover-animation */
+  color: initial; /* Reset the default link color */
+  text-decoration: none; /* Remove underlines on links */
+}
+
+.hover-animation button:hover {
+  /* Apply styles to the link when hovered */
+  color: #ffaa55; /* Pale orange link color when hovered */
+}
+
+.hover-animation:hover {
+  background-color: #ffc877; /* Pale orange background color when hovered */
+}

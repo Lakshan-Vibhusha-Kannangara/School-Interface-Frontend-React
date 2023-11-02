@@ -1,0 +1,51 @@
+/* Your CustomSelect component CSS */
+.select {
+  position: relative;
+  display: flex;
+
+  background: var(--background-select);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  font: white;
+}
+
+.select select {
+  flex: 1;
+  padding: 1em;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid white; /* Add a white border here */
+  border-radius: 10px;
+  outline: 0;
+  background: none;
+  color: white;
+  box-shadow: none;
+
+  -ms-expand {
+    display: none;
+  }
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  transition: 0.25s all ease;
+  pointer-events: none;
+  color: wheat;
+}
+
+.select:hover::after {
+  color: #f39c12;
+  animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+  25% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
